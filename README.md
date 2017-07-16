@@ -20,7 +20,7 @@ virt-sysprep \
   --operations
   bash-history,dhcp-client-state,logfiles,ssh-hostkeys,tmp-files,lvm-uuids,machine-id,customize\
   --selinux-relabel\
-  --ssh-inject user\ # Inject current user's SSH key into /home/user/.ssh/authorized_keys
+  --ssh-inject ansible\ # Inject current user's SSH key into /home/user/.ssh/authorized_keys
   --firstboot-command 'dpkg-reconfigure openssh-server'\ # SSH host keys were erased and must be regenerated
   --install 'python-minimal'\ # Needed by ansible
   --update\
