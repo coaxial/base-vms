@@ -19,9 +19,9 @@ Ubuntu 16.04.2 Base | No python installed | [ubuntu-16.04_base.qcow2.xz](https:/
 virt-sysprep \
   --operations bash-history,dhcp-client-state,logfiles,ssh-hostkeys,tmp-files,lvm-uuids,machine-id,customize\
   --selinux-relabel\
-  --ssh-inject ansible\ # Inject current user's SSH key into /home/user/.ssh/authorized_keys\
-  --firstboot-command 'dpkg-reconfigure openssh-server'\ # SSH host keys were erased and must be regenerated\
-  --install 'python-minimal'\ # Needed by ansible\
+  --ssh-inject ansible `# Inject current user's SSH key into /home/user/.ssh/authorized_keys`\
+  --firstboot-command 'dpkg-reconfigure openssh-server' `# SSH host keys were erased and must be regenerated`\
+  --install 'python-minimal' `# Needed by ansible`\
   --update\
   --network\
   -a myvm.qcow2
