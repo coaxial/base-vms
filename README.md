@@ -7,7 +7,7 @@ template.
 
 Image description | Comment | Download
 --- | --- | ---
-Ubuntu 16.04.2 Base | No python installed | [ubuntu-16.04_base.qcow2.xz](https://mega.nz/#!NY0i0CSZ!WolfvaqLIVqvfHtruzR4zg2pTUORrdvvyfVFg8BkrsA)
+Ubuntu 16.04.2 Base | No python installed | [ubuntu-16.04_base.qcow2.xz](https://mega.nz/#!8ZcACSrJ!VzooX5Q0aKlisRDGPGZBuBoaapQib4hp5jD6cFMl_Jo)
 
 ## Turn template into VM
 
