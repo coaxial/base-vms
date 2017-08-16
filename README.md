@@ -7,7 +7,7 @@ template.
 
 Image description | Comment | Download
 --- | --- | ---
-Ubuntu 16.04.2 Base | No python installed | [ubuntu-16.04_base.qcow2.xz](https://mega.nz/#!8ZcACSrJ!VzooX5Q0aKlisRDGPGZBuBoaapQib4hp5jD6cFMl_Jo)
+Ubuntu 16.04.2 Base | No python installed, ansible user created with passwordless sudo | [ubuntu-16.04_base.qcow2.xz](https://mega.nz/#!8ZcACSrJ!VzooX5Q0aKlisRDGPGZBuBoaapQib4hp5jD6cFMl_Jo)
 
 ## Turn template into VM
 
@@ -16,15 +16,16 @@ Ubuntu 16.04.2 Base | No python installed | [ubuntu-16.04_base.qcow2.xz](https:/
 - Prepare the image:
 
 ```bash
-virt-sysprep \
-  --operations bash-history,dhcp-client-state,logfiles,ssh-hostkeys,tmp-files,lvm-uuids,machine-id,customize\
-  --selinux-relabel\
-  --ssh-inject ansible `# Inject current user's SSH key into /home/user/.ssh/authorized_keys`\
-  --firstboot-command 'dpkg-reconfigure openssh-server' `# SSH host keys were erased and must be regenerated`\
-  --install 'python-minimal' `# Needed by ansible`\
-  --update\
-  --network\
-  -a myvm.qcow2
+./prep-ubuntu.sh ubuntu-base-1604.qcow2
 ```
 
 - Create a new VM with the extracted image as a disk
+
+## Other commands
+
+- `reset-mainframe.sh`: reset mainframe staging VM to initial state (requires
+  the master image which is a variant of ubuntu base without ssh keys setup or
+python installed, i.e. what you get when installing ubuntu server from the live
+medium)
+
+- `update-ubuntu.sh`: update packages in an already prepared base ubuntu image
